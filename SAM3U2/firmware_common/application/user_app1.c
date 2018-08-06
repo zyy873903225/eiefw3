@@ -157,6 +157,13 @@ State Machine Function Definitions
 /* What does this state do? */
 static void UserApp1SM_Idle(void)
 {
+  static u8 au8reception[100] = {0};
+  
+  /*检查是否有消息*/
+  if( nrfNewMessageCheck() > 0 )
+  {
+    nrfGetAppMessage(au8reception);
+  }
     
 } /* end UserApp1SM_Idle() */
      
