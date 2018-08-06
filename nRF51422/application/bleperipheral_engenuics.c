@@ -333,6 +333,14 @@ Promises:
 */
 static void CallbackBleperipheralEngenuicsDataRx(u8* u8Data_, u8 u8Length_)
 {
+  /*TEST*/
+  /*static u8 u8receive[100] = {0};
+   
+  for(u8 i=0;i<u8Length_;i++)
+  {
+    u8receive[i] = u8Data_[i];
+  }*/
+  
   // Forward handling to ANTTT module.
   
 }
