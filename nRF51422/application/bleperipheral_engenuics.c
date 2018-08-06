@@ -340,8 +340,8 @@ static void CallbackBleperipheralEngenuicsDataRx(u8* u8Data_, u8 u8Length_)
   {
     u8receive[i] = u8Data_[i];
   }*/
-  
   // Forward handling to ANTTT module.
+  
   
 }
 
