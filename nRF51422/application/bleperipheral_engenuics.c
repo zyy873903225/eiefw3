@@ -333,6 +333,8 @@ Promises:
 */
 static void CallbackBleperipheralEngenuicsDataRx(u8* u8Data_, u8 u8Length_)
 {
+  static u8 au8Send_data[]={0};
+  
   /*TEST*/
   /*static u8 u8receive[100] = {0};
    
@@ -341,8 +343,14 @@ static void CallbackBleperipheralEngenuicsDataRx(u8* u8Data_, u8 u8Length_)
     u8receive[i] = u8Data_[i];
   }*/
   // Forward handling to ANTTT module.
+  au8Send_data[0] = NRF_SYNC_BYTE; /*发送的数据第一位为同步字节*/
+  au8Send_data[1] = u8Length_;     /*发送的数据第二位为数据长度*/    
+  for(u8 i=2;i<(u8Length_+2);i++)
+  {
+    au8Send_data[i] = u8Data_[i-2];
+  }
   
-  
+  SpiMasterSend(au8Send_data, u8Length_+2);
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
